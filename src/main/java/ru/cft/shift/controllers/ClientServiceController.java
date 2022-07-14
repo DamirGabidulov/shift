@@ -25,9 +25,9 @@ public class ClientServiceController {
         return ResponseEntity.ok().body(taskService.getClientServiceById(serviceId));
     }
 
-    @Operation(summary = "Получить услугу по id пользователя")
+    @Operation(summary = "Получить все услуги по id пользователя")
     @GetMapping("/user/{user-id}")
-    public ResponseEntity<ClientServiceResponse> getServicesByUser(@Parameter(description = "id пользователя, которого хотим получить") @PathVariable("user-id") Long userId){
+    public ResponseEntity<ClientServiceResponse> getServicesByUser(@Parameter(description = "id пользователя, у которого хотим получить все услуги") @PathVariable("user-id") Long userId){
         return ResponseEntity.ok().body(ClientServiceResponse.builder()
                 .data(taskService.getServicesByUser(userId))
                 .build());
