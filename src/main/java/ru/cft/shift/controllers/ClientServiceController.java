@@ -27,7 +27,7 @@ public class ClientServiceController {
 
     @Operation(summary = "Получить услугу по id пользователя")
     @GetMapping("/user/{user-id}")
-    public ResponseEntity<ClientServiceResponse> getServicesByUser(@PathVariable("user-id") Long userId){
+    public ResponseEntity<ClientServiceResponse> getServicesByUser(@Parameter(description = "id пользователя, которого хотим получить") @PathVariable("user-id") Long userId){
         return ResponseEntity.ok().body(ClientServiceResponse.builder()
                 .data(taskService.getServicesByUser(userId))
                 .build());
@@ -35,7 +35,7 @@ public class ClientServiceController {
 
     @Operation(summary = "Удалить услугу по id")
     @DeleteMapping("/delete/{service-id}")
-    public String deleteById(@PathVariable("service-id") Long serviceId){
+    public String deleteById(@Parameter(description = "id услуги, которую хотим удалить") @PathVariable("service-id") Long serviceId){
         taskService.deleteById(serviceId);
         return "Deleted Successfully";
     }
@@ -43,14 +43,14 @@ public class ClientServiceController {
     @Operation(summary = "Обновить данные в услуге")
     @PutMapping("/update/{service-id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ClientServiceDto updateService(@RequestBody ClientServiceDto clientServiceDto, @PathVariable("service-id") Long serviceId) {
+    public ClientServiceDto updateService(@Parameter(description = "Данные об услуге которые будут обновлены") @RequestBody ClientServiceDto clientServiceDto, @Parameter(description = "id услуги, которую хотим обновить") @PathVariable("service-id") Long serviceId) {
         return taskService.updateService(clientServiceDto, serviceId);
     }
 
     @Operation(summary = "Добавить услугу")
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public ClientServiceDto addClientService(@RequestBody ClientServiceDto clientServiceDto){
+    public ClientServiceDto addClientService(@Parameter(description = "Данные об услуге которые будут добавлены") @RequestBody ClientServiceDto clientServiceDto){
         return taskService.addClientService(clientServiceDto);
     }
 }
