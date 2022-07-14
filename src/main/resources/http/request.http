@@ -1,12 +1,56 @@
-GET localhost/api/user/1
+GET localhost/api/user/6
 
 ###
 POST localhost/api/signUp
 Content-Type: application/json
 
 {
-  "firstName": "MyName",
-  "lastName": "MyLastName",
-  "middleName": "MyMiddleName",
-  "password": "MyPassword"
+  "firstName": "Anton",
+  "lastName": "Chehov",
+  "middleName": "Pavlovich",
+  "password": "PalataN6"
 }
+
+###
+GET localhost/api/user/all
+
+###
+POST localhost/api/services
+Content-Type: application/json
+
+{
+  "description": "Fix bikes",
+  "date": "2022-05-10T19:58:01.000+00:00",
+  "city": "Tomsk",
+  "userId": "5"
+}
+
+###
+GET localhost/api/services/1
+
+###
+GET localhost/api/services/user/4
+
+###
+PUT localhost/api/services/update/3
+Content-Type: application/json
+
+{
+  "description": "Read books for you",
+  "date": "2022-04-05T19:58:01.000+00:00",
+  "city": "Novosibirsk"
+}
+
+###
+DELETE localhost/api/services/delete/5
+
+###
+POST localhost/api/orders/service/1
+Content-Type: application/json
+
+{
+  "userId": "4"
+}
+
+###
+GET localhost/api/orders/1
