@@ -2,6 +2,7 @@ package ru.cft.shift.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import ru.cft.shift.services.TaskService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/services")
+@Tag(name = "ClientServiceController", description = "Контроллер услуг")
 public class ClientServiceController {
 
     private final TaskService taskService;
