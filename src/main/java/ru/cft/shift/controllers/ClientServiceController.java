@@ -15,6 +15,7 @@ import ru.cft.shift.services.TaskService;
 @RequiredArgsConstructor
 @RequestMapping("/api/services")
 @Tag(name = "ClientServiceController", description = "Контроллер услуг")
+@CrossOrigin
 public class ClientServiceController {
 
     private final TaskService taskService;

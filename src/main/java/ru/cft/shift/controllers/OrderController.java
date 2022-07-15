@@ -14,6 +14,7 @@ import ru.cft.shift.services.OrderService;
 @RequiredArgsConstructor
 @RequestMapping("api/orders")
 @Tag(name = "OrderController", description = "Контроллер заказов")
+@CrossOrigin
 public class OrderController {
 
     private final OrderService orderService;
